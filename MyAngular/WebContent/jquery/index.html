@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>My JQuery Demo</title>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+  <span>Insert your name:</span>
+  <input id="inputName" type="text"  />
+  <h3>Echo: <span id="outputName"></span></h3>
+</body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#inputName").keyup(function() {
+			$("#outputName").text(this.value);
+		});
+	});
+</script>
+</html>
