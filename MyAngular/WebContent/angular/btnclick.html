@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>My Angular Demo</title>
+<style>
+.hide {
+    display:none;
+}
+</style>
+
+</head>
+<body ng-app="blog">
+	<div ng-controller="blogCtrl">
+		<div class="well">
+			<button id="btnCompose" ng-click="composeBtn()">Compose</button>
+			<button id="btnPreview" ng-click="previewBtn()">Preview</button>
+			<button id="btnPost" ng-click="postBtn()">Post</button>
+			
+			<div id="blogCompose" ng-show="state.blogCompose">
+			     <h1>Blog Compose</h1>
+			</div>
+			<div id="blogPreview" ng-show="state.blogPreview">
+			     <h1>Blog Preview</h1>
+			</div>
+			<div id="blogPost" ng-show="state.blogPost">
+			     <h1>Blog Post</h1>
+			</div> 
+		</div>			
+	</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+<script type="text/javascript">
+var demo = angular.module('blog', [])
+.controller('blogCtrl', function($scope) {
+
+  //Defaults, page load
+  $scope.state = {};
+  $scope.state.blogCompose = true;
+  $scope.state.blogPreview = false;
+  $scope.state.blogPost = false;
+
+  //Manage state per button
+  $scope.composeBtn = function () {
+    $scope.state.blogCompose = true;
+    $scope.state.blogPreview = false;
+    $scope.state.blogPost = false;
+  };
+
+  $scope.previewBtn = function () {
+    $scope.state.blogCompose = false;
+    $scope.state.blogPreview = true;
+    $scope.state.blogPost = false;
+  };
+
+  $scope.postBtn = function () {
+    $scope.state.blogCompose = false;
+    $scope.state.blogPreview = false;
+    $scope.state.blogPost = true;
+  };
+
+});
+</script>
+</html>

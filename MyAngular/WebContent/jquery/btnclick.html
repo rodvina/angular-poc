@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>My JQuery Demo</title>
+<style>
+.hide {
+    display:none;
+}
+</style>
+</head>
+<body>
+	<button id="btnCompose">Compose</button>
+	<button id="btnPreview">Preview</button>
+	<button id="btnPost">Post</button>
+	
+	<div id="blogCompose">
+	     <h1>Blog Compose</h1>
+	</div>
+	<div id="blogPreview" class="hide">
+	     <h1>Blog Preview</h1>
+	</div>
+	<div id="blogPost" class="hide">
+	     <h1>Blog Post</h1>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var target;
+		$('button').click(function() {
+		     target = $(this).attr('id');
+		     if (target == 'btnCompose') {
+			     $('#blogCompose').removeClass('hide');
+			     $('#blogPreview, #blogPost').addClass('hide');
+			} else if (target == 'btnPreview') {
+			     $('#blogPreview').removeClass('hide');
+			     $('#blogCompose, #blogPost').addClass('hide'); 
+			} else if (target == 'btnPost') {
+			     $('#blogPost').removeClass('hide');
+			     $('#blogCompose, #blogPreview').addClass('hide'); 
+			};
+		});
+
+		
+	});
+</script>
+</html>
